@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "workspace": {
+      "type": "String"
+    }
+  },
+  "resources": [
+    {
+      "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/3e942374-6b34-4d66-908f-83fcd94d1625')]",
+      "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/3e942374-6b34-4d66-908f-83fcd94d1625')]",
+      "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+      "kind": "MicrosoftSecurityIncidentCreation",
+      "apiVersion": "2023-02-01-preview",
+      "properties": {
+        "displayName": "(Private Preview) Create incidents based on Microsoft 365 Insider Risk Management",
+        "description": "Create incidents based on all alerts generated in Microsoft 365 Insider Risk Management",
+        "displayNamesExcludeFilter": null,
+        "displayNamesFilter": null,
+        "productFilter": "Microsoft 365 Insider Risk Management",
+        "severitiesFilter": null,
+        "alertRuleTemplateName": null,
+        "enabled": true
+      }
+    }
+  ]
+}
